@@ -66,50 +66,48 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white text-gray-800">
-      <div className="w-full max-w-2xl rounded-lg shadow-md p-8 m-4 bg-white">
-        <h2 className="text-xl font-bold mb-4 text-purple-600">
+    <div className="min-h-screen flex items-center justify-center bg-blue-50 text-blue-800">
+      <div className="w-full max-w-4xl mx-auto p-6 bg-white shadow-lg border border-blue-200 rounded-lg">
+        <h2 className="text-2xl font-bold mb-6 text-blue-700">
           説明してほしい画像をアップロードしてください
         </h2>
         {image !== "" ? (
-          <div className=" mb-4 overflow-hidden">
+          <div className="mb-6 overflow-hidden">
             <img
               src={image}
-              className=" w-full object-contain max-h-72"
-              alt="no image"
+              className="w-full object-contain max-h-96 rounded-lg shadow-sm"
+              alt="Uploaded"
             />
           </div>
         ) : (
-          <div className="mb-4 p-8 text-center border border-dashed border-purple-200 rounded font-bold">
+          <div className="mb-6 p-8 text-center border border-dashed border-blue-300 rounded-lg font-bold text-blue-500">
             <p>画像をアップロードするとここに表示されます</p>
           </div>
         )}
-
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="flex flex-col mb-6">
-            <label className="mb-2 text-sm font-bold text-purple-600">
+            <label className="mb-2 font-bold text-blue-700">
               画像をアップロード
             </label>
             <input
               onChange={(e) => handleFileChange(e)}
               type="file"
-              className=" font-bold text-sm text-purple-600 border border-purple-200 rounded-lg cursor-pointer file:py-2 file:px-4 file:border-purple-500 file:text-white file:bg-purple-600 hover:file:bg-purple-700 transition duration-300 ease-in-out"
+              className="font-bold text-sm text-blue-700 bg-blue-50 border border-blue-300 rounded-lg cursor-pointer file:py-2 file:px-4 file:border-blue-500 file:text-white file:bg-blue-700 hover:file:bg-blue-800 transition duration-300 ease-in-out"
             />
           </div>
           <div className="flex justify-center">
             <button
               type="submit"
-              className="p-2 bg-purple-600 text-white rounded-lg shadow transform transition duration-300 ease-in-out hover:scale-95 hover:shadow-sm font-bold"
+              className="px-6 py-2 bg-blue-700 text-white rounded-lg shadow-md transform transition duration-300 ease-in-out hover:scale-95 hover:bg-blue-600 font-bold"
             >
               画像の説明を生成する
             </button>
           </div>
         </form>
-
         {openAIResponse !== "" ? (
-          <div className="border-t border-purple-200 pt-4 mt-4">
-            <h2 className="text-xl font-bold mb-2 text-purple-600">AIの説明</h2>
-            <p>{openAIResponse}</p>
+          <div className="border-t border-blue-200 pt-4 mt-4">
+            <h2 className="text-2xl font-bold mb-2 text-blue-700">AIの説明</h2>
+            <p className="text-blue-600">{openAIResponse}</p>
           </div>
         ) : null}
       </div>
